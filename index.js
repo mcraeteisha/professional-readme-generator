@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
+const generateMarkdown = require ('./utils/generateMarkdown');
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -12,7 +13,7 @@ const questions = () => {
             type: 'input',
             name: 'title',
             message: 'What is your project title?',
-            default: 'Really Cool Project'
+            default: 'Really Cool Project',
         },
         {
             type: 'input',
@@ -48,21 +49,46 @@ const questions = () => {
             type: 'list',
             name: 'license',
             message: 'Choose a license for your application:',
-            choices: ['default', 'MIT License', 'Apache License', 'GNU GPLv3', 'ISC License'],
+            choices: ["MIT License", "GPLv3 License", "Creative Commons License"],
+            default: "MIT License",
         },
         {
             type: 'input',
             name: 'github',
-            message: 'What is your GitHub username?'
+            message: 'What is your GitHub username?',
         }
     ]);
+};    
 
 // TODO: Create a function to write README file
-const writeToFile = (answers) => 
-    ``
+// const writeToFile = (answers) => 
+//     `# ${answers.title}
+//     ${answers.description}
+
+//     ## Installation
+//     ${answers.installation}
+
+//     ## Usage
+//     ${answers.usage}
+//     [${answers.title}](${answers.screenshot})
+
+//     ## Contributing
+//     ${answers.contribution}
+
+//     ## Tests
+//     ${answers.tests}
+
+//     ## License
+//     ${answers.license}
+//     `;
 
 // TODO: Create a function to initialize app
-function init() {}
+const init = () => {
+    questions()
+        .then((answers) => writeFileAsync('README.md', writeToFile(answers)))
+        .then(() => console.log('README file successfully written!'))
+        .catch((err) => console.error(err));
+};
 
 // Function call to initialize app
 init();
