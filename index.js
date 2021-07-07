@@ -1,12 +1,10 @@
-// Include packages needed for this application
+// Including packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
 const generateMarkdown = require ('./utils/generateMarkdown');
 
-const writeFileAsync = util.promisify(fs.writeFile);
-
-// TODO: Create an array of questions for user input
+// Creates an array of questions for user input
 const questions = () => {
     return inquirer.prompt([
         {
@@ -56,11 +54,27 @@ const questions = () => {
             type: 'input',
             name: 'github',
             message: 'What is your GitHub username?',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your email address?',
         }
     ]);
 };    
 
-// TODO: Create a function to write README file
+//Function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Nice work! Your README file has been generated.")
+    });
+}
+
+const writeFileAsync = util.promisify(fs.writeFile);
+
 // const writeToFile = (answers) => 
 //     `# ${answers.title}
 //     ${answers.description}
@@ -82,13 +96,36 @@ const questions = () => {
 //     ${answers.license}
 //     `;
 
-// TODO: Create a function to initialize app
-const init = () => {
-    questions()
-        .then((answers) => writeFileAsync('README.md', writeToFile(answers)))
-        .then(() => console.log('README file successfully written!'))
-        .catch((err) => console.error(err));
-};
+//Function to initialize app
+async function init() {
+    try {
+        const answers = await questions();
+        console.log("Thank you! Generating your README file...");
+
+        const markdown = generateMarkdown(answers)
+        console.log(markdown);
+
+        await writeFileAsync('README.md', markdown);
+
+    } catch (error) {
+        console.log(error);
+        }
+    // try{
+    //     //Begin Inquirer questions
+    //     questions()
+    //     const answers = 
+
+    //     //Call generateMarkdown function, save data to var
+    //     const markdown = generateMarkdown(answers)
+    //     console.log(markdown)
+
+    //     .then((markdown) => writeFileAsync('README.md', markdown))
+    //     // .then(() => console.log('README file successfully written!'))
+    //     } 
+    //     catch (error) {
+    //     console.log(error);
+    //     }
+}
 
 // Function call to initialize app
 init();

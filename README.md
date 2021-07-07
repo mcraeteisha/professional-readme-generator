@@ -1,19 +1,32 @@
 # Teisha's README Generator
-    This Professional README Generator allows users to create a README file directly from their command line! 
 
-    ## Installation
-    Clone my github repository to your machine and open the associated files in your IDE. Open your command line via your IDE. Run npm install. Then run node index.js to get started.
+  ## Description
+  A command-line application that allows users to quickly and easily create a README file.
 
-    ## Usage
-    This generator would be great for users who want to quickly create a README file without leaving their IDE. The tool is convenient and presents a user with specific questions that, if answered, will insure that they have created a professional README file.
-    [Teisha's README Generator](https://github.com/mcraeteisha/weather-dashboard)
+  ## Table of Contents
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
 
-    ## Contributing
-    Open to any and all who would like to contribute!
+  ## Installation
+  Clone this GitHub Repository to your local machine and open the associated files in your IDE. Open your command line to the location of your cloned files. Run 'npm install'. Then, run 'node index.js' to get started.
 
-    ## Tests
-    To insure that the application is fully functioning, answer all questions. Then, check that the generated file matches the answers provided.
+  ## Usage
+  This generator would be great for users who want to quickly create a README file without leaving their IDE. The tool is convenient and presents a user with specific questions that, if answered completely, will ensure that they have created a professional README file.
 
-    ## License
-    MIT License
-    
+  ## Contributing
+  This application accepts contributions from any and all who would like to contribute. For more info on how to contribute, visit the Questions section below!
+
+  ## Tests
+  To test that the application behaves as expected, answer all questions. Then, check that a README file was generated and the that information listed matches the answers provided in the command line.
+
+  ## License
+  MIT License
+
+  ## Screenshots
+  [Application Screenshot](https://user-images.githubusercontent.com/73713665/124681965-b69b6f80-de97-11eb-8614-4592e136da8f.png)
+
+  ## Questions?
+  For questions regarding this project, please contact me at mcraeteisha@gmail.com. You can also message me on GitHub at [mcraeteisha](https://github.com/mcraeteisha).
+
