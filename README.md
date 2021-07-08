@@ -21,8 +21,9 @@
   ## Tests
   To test the application, answer all questions. Then, check that a README file was generated and that the information listed in the file matches the answers you provided to questions in the command line.
 
-  ## Screenshots 📸
-  [Application Screenshot](https://user-images.githubusercontent.com/73713665/124865278-589a8500-df88-11eb-9dad-14cff16bcbe2.png)
+  ## Screenshots & Video Recording 📸
+  * [Application Screenshot](https://user-images.githubusercontent.com/73713665/124865278-589a8500-df88-11eb-9dad-14cff16bcbe2.png)
+  * [Application Recording](https://www.loom.com/share/31d2cb341ca6430ebe1807a96b20926c)
 
   ## Questions?
   For questions regarding this project, please contact me at mcraeteisha@gmail.com. You can also message me on GitHub at [mcraeteisha](https://github.com/mcraeteisha).
