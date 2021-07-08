@@ -57,6 +57,12 @@ const questions = () => {
         },
         {
             type: 'input',
+            name: 'repo',
+            message: 'What is the name of your GitHub repo?',
+            default: 'readme-generator',
+        },
+        {
+            type: 'input',
             name: 'email',
             message: 'What is your email address?',
         }
@@ -69,32 +75,13 @@ function writeToFile(fileName, data) {
         if (err) {
             return console.log(err);
         }
+        renderLicenseSection();
         console.log("Nice work! Your README file has been generated.")
     });
 }
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
-// const writeToFile = (answers) => 
-//     `# ${answers.title}
-//     ${answers.description}
-
-//     ## Installation
-//     ${answers.installation}
-
-//     ## Usage
-//     ${answers.usage}
-//     [${answers.title}](${answers.screenshot})
-
-//     ## Contributing
-//     ${answers.contribution}
-
-//     ## Tests
-//     ${answers.tests}
-
-//     ## License
-//     ${answers.license}
-//     `;
 
 //Function to initialize app
 async function init() {
@@ -110,21 +97,6 @@ async function init() {
     } catch (error) {
         console.log(error);
         }
-    // try{
-    //     //Begin Inquirer questions
-    //     questions()
-    //     const answers = 
-
-    //     //Call generateMarkdown function, save data to var
-    //     const markdown = generateMarkdown(answers)
-    //     console.log(markdown)
-
-    //     .then((markdown) => writeFileAsync('README.md', markdown))
-    //     // .then(() => console.log('README file successfully written!'))
-    //     } 
-    //     catch (error) {
-    //     console.log(error);
-    //     }
 }
 
 // Function call to initialize app

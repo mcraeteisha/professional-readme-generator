@@ -1,16 +1,38 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// Function returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  if (data.license !== '') {
+    return `https://img.shields.io/github/license/${data.github}/${data.repo}`
+  }
+  else {
+    return '';
+  }
+}
 
-// TODO: Create a function that returns the license link
+// Function returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (data.license !== '') {
+    return `https://api.github.com/licenses/${data.license}`
+  }
+  else {
+    return '';
+  }
+}
 
-// TODO: Create a function that returns the license section of README
+// Function returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (data.license !== '') {
+    renderLicenseBadge();
+    renderLicenseLink();
+  }
+  else {
+    return '';
+  }
+}
 
-// TODO: Create a function to generate markdown for README
+// Function generates markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
@@ -23,7 +45,7 @@ function generateMarkdown(data) {
   * [Contributing](#contributing)
   * [Tests](#tests)
 
-  ## Installation
+  ## Installation 💻
   ${data.installation}
 
   ## Usage
@@ -35,16 +57,15 @@ function generateMarkdown(data) {
   ## Tests
   ${data.tests}
 
-  ## License
-  ${data.license}
-
-  ## Screenshots
+  ## Screenshots 📸
   [Application Screenshot](${data.screenshot})
 
   ## Questions?
   For questions regarding this project, please contact me at ${data.email}. You can also message me on GitHub at [${data.github}](https://github.com/${data.github}).
 
-`;
+  ## License
+  This application is covered by the ${data.license}.`
+;
 }
 
 module.exports = generateMarkdown;
